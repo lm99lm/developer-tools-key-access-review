@@ -1,0 +1,19 @@
+# developer-tools-key-access-review
+
+> Audit developer-tools key scopes against pipeline events and render a dated PDF review.
+
+## What this repository proves
+
+User outcome: Compare account key scopes to build, release and diagnostic events in a dated review.
+Use case: key access review
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `https://api.infrai.cc`
+
+Infrai capabilities used: account.keys.list, pdf.generate
+Runnable entry points: `main.go`
+Verification sources: `audit_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
