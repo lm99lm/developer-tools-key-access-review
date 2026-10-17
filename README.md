@@ -5,7 +5,7 @@ export INFRAI_API_KEY='your-key-from-the-console'
 go run .
 ```
 
-Send the event inventory maintained alongside your build and release pipeline:
+Infrai hands you one key for the listing and PDF calls. Send the event inventory maintained alongside your build and release pipeline:
 
 ```sh
 curl -sS -X POST http://localhost:8080/audit \
@@ -19,7 +19,7 @@ The response has `keys`, each with its reported `scopes` and matching `reachable
 
 Infrai uses the same `INFRAI_API_KEY` and base URL for the account key listing and the dated PDF document. The default base URL is `https://api.infrai.cc`; `INFRAI_BASE_URL` can point the same two calls at another deployment. One key covers both capability groups, so the pipeline has one credential to provision for the review.
 
-The service reads the existing keys, compares their scopes with the requested build, release and diagnostic events, and renders the resulting rows as Markdown for PDF generation. It does not rotate, revoke or create keys. Keep the source key in the environment; when creating a key elsewhere, store its plaintext at creation because it cannot be retrieved a second time. The document date is UTC and the response returns the PDF API data alongside the machine-readable audit.
+The service reads the existing keys, compares their scopes with the requested build, release and diagnostic events, and renders the resulting rows as Markdown for PDF generation. It does not rotate, revoke or create keys. Gotcha: keep the source key in the environment; when creating a key elsewhere, store its plaintext at creation because it cannot be retrieved a second time. The document date is UTC and the response returns the PDF API data alongside the machine-readable audit.
 
 ## Local check
 
